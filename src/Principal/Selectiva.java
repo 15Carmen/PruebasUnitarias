@@ -4,6 +4,12 @@ public class Selectiva {
 
      int minimo=0;
 
+    /**
+     * hacer prueba de caja negra
+     * @param x
+     * @param y
+     * @return
+     */
     public int obteneMaximo(int x, int y){
         int maximo = x;
 
@@ -33,6 +39,13 @@ public class Selectiva {
         }
     }
 
+    /**
+     * hacer prueba de caja negra
+     * @param opcion
+     * @param a
+     * @param b
+     * @return
+     */
     public int realizarCalculo (int opcion, int a, int b){
         int calculo=0;
         switch (opcion){

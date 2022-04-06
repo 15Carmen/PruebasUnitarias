@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SecuencialTest {
 
+
+    /**
+     * Pruebas de caja negra con valores de entrada y salida
+     */
     @org.junit.jupiter.api.Test
     void suma() {
         int x = 2;
@@ -16,6 +20,11 @@ class SecuencialTest {
         int resultadoReal= secuencial.suma(x,y);
         assertEquals(resultadoReal, resultadoEsperado, "Suma no valida");
     }
+
+    /**
+     * Las pruebas de caja blanca solo se suelen hacer con estructuras complejas
+     *
+     */
 
     @org.junit.jupiter.api.Test
     void setContador() {

@@ -2,16 +2,22 @@ package Principal;
 
 public class Iterativa {
 
-    private int[] datos;
+    private double[] datos;
     private final int MINIMO_VALIDO=-100;
     private final int MAXIMO_VALIDO=1000;
 
 
-    public Iterativa(int [] datos){
+    public Iterativa(double [] datos){
         this.datos=datos;
     }
 
-    public double buscarMaximo(double[] vector){
+
+    /**
+     * hacer pruebas de caja negra
+     * @param vector
+     * @return
+     */
+    public double obtenerMaximo(double[] vector){
 
         double maximo = vector[0];
         for (int i = 1; i< vector.length; i++){
@@ -22,12 +28,11 @@ public class Iterativa {
         return maximo;
     }
 
-    public double buscarMinimoInterno(){
+    public double buscarMinimoInterno() {
         double minimo = datos[0];
-        for (int i = 1; i< datos.length; i++){
-            if (datos[i]>minimo){
-                minimo=datos[i];
-            }
+        for (int i = 1; i < datos.length; i++) {
+            if (datos[i] < minimo)
+                minimo = datos[i];
         }
         return minimo;
     }
@@ -37,6 +42,16 @@ public class Iterativa {
             datos[i] *=2;
         }
     }
+
+
+
+    /**
+     * hacer pruebas de caja negra
+     * @param minimo
+     * @param maximo
+     * @return
+     * @throws Exception
+     */
 
     public double obtenerValorEntre(double minimo, double maximo) throws Exception {
         boolean encontrado= false;
@@ -54,6 +69,14 @@ public class Iterativa {
         }
         return valor;
     }
+
+
+
+    /**
+     * hacer pruebas de caja negra
+     * @return
+     * @throws Exception
+     */
 
     public double primerNegativo() throws Exception {
         boolean encontrado= false;
