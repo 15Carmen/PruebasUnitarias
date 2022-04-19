@@ -1,5 +1,6 @@
 package test;
 
+import Principal.Secuencial;
 import Principal.Selectiva;
 import org.junit.jupiter.api.Test;
 
@@ -9,64 +10,107 @@ class SelectivaTest {
 
     @Test
     void obteneMaximoCN1() {
-        int x = 5;
-        int y = 3;
-        int resultadoEsperado=5;
         Selectiva selectiva = new Selectiva();
-        int resultadoReal=selectiva.obteneMaximo(x,y);
-        assertEquals(resultadoEsperado, resultadoReal, "El resultado es erroneo");
+        assertEquals(5, selectiva.obteneMaximo(5,2),
+                "El resultado es erroneo");
     }
+
     @Test
     void obteneMaximoCN2() {
-        int x = 5;
-        int y = 9;
-        int resultadoEsperado=9;
         Selectiva selectiva = new Selectiva();
-        int resultadoReal=selectiva.obteneMaximo(x,y);
-        assertEquals(resultadoEsperado, resultadoReal, "El resultado es erroneo");
+        assertEquals(5, selectiva.obteneMaximo(2,5),
+                "El resultado es erroneo");
     }
 
     @Test
     void realizarCalculoCN1() {
-        int opcion=0;
-        int a=4;
-        int b=5;
-        int resultadoEsperado=9;
         Selectiva selectiva = new Selectiva();
-        int resultadoReal=selectiva.realizarCalculo(opcion,a,b);
-        assertEquals(resultadoEsperado, resultadoReal, "El resultado es erroneo");
+        assertEquals(9, selectiva.realizarCalculo(0,5,4),
+                "El resultado es erroneo");
     }
 
 
     @Test
     void realizarCalculoCN2() {
-        int opcion=0;
-        int a=4;
-        int b=5;
-        int resultadoEsperado=20;
         Selectiva selectiva = new Selectiva();
-        int resultadoReal=selectiva.realizarCalculo(opcion,a,b);
-        assertEquals(resultadoEsperado, resultadoReal, "El resultado es erroneo");
+        assertEquals(20, selectiva.realizarCalculo(1,5,4),
+                "El resultado es erroneo");
     }
 
     @Test
     void realizarCalculoCN3() {
-        int opcion=1;
-        int a=4;
-        int b=5;
-        int resultadoEsperado=20;
         Selectiva selectiva = new Selectiva();
-        int resultadoReal=selectiva.realizarCalculo(opcion,a,b);
-        assertEquals(resultadoEsperado, resultadoReal, "El resultado es erroneo");
+        assertEquals(-1, selectiva.realizarCalculo(-1,5, 4),
+                "El resultado es erroneo");
+
     }
 
     @Test
-    void realizarCalculoCN4() {
-        int opcion=1;
-        int a=4;
-        int b=5;
-        int resultadoEsperado=20;
+    void actualizarMinimoCN1() {
         Selectiva selectiva = new Selectiva();
-        int resultadoReal=selectiva.realizarCalculo(opcion,a,b);
-        assertEquals(resultadoEsperado, resultadoReal, "El resultado es erroneo");
-    }}
+        selectiva.actualizarMinimo(0);
+        assertEquals(0, selectiva.minimo,
+                "El minimo no es valido");
+        selectiva.actualizarMinimo(-10);
+        assertEquals(-10, selectiva.minimo,
+                "El minimo no es valido");
+        selectiva.actualizarMinimo(3);
+        assertEquals(-10, selectiva.minimo,
+                "El minimo no es valido");
+    }
+
+    @Test
+    void actualizarMinimoCN2() {
+        Selectiva selectiva = new Selectiva();
+        selectiva.actualizarMinimo(-23);
+        assertEquals(-23, selectiva.minimo,
+                "El minimo no es valido");
+    }
+
+    @Test
+    void actualizarMinimoCN3() {
+        Selectiva selectiva = new Selectiva();
+        selectiva.actualizarMinimo(3);
+        assertEquals(0, selectiva.minimo,
+                "El minimo no es valido");
+    }
+
+    @Test
+    void restaurarMinimoPositivoCN1() {
+        Selectiva selectiva = new Selectiva();
+        selectiva.restaurarMinimoPositivo();
+        assertEquals(0, selectiva.minimo,
+                "No se ha restaurado el mínimo");
+
+    }
+
+    @Test
+    void restaurarMinimoPositivoCN2() {
+        Selectiva selectiva = new Selectiva();
+        //selectiva.minimo=-10;
+        selectiva.actualizarMinimo(-10);
+        selectiva.restaurarMinimoPositivo();
+        assertEquals(0, selectiva.minimo,
+                "No se ha restaurado el mínimo");
+
+    }
+
+    @Test
+    void multiplicarPorSignoCN1() {
+        Selectiva selectiva = new Selectiva();
+        selectiva.actualizarMinimo(-2);
+        selectiva.multiplicacionPorSigno();
+        assertEquals(4, selectiva.minimo,
+                "No se ha restaurado el mínimo");
+    }
+
+    @Test
+    void multiplicarPorSignoCN2() {
+        Selectiva selectiva = new Selectiva();
+        selectiva.minimo = 3;
+        selectiva.multiplicacionPorSigno();
+        assertEquals(9, selectiva.minimo,
+                "No se ha restaurado el mínimo");
+    }
+
+}

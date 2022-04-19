@@ -36,5 +36,15 @@ class SecuencialTest {
 
     @org.junit.jupiter.api.Test
     void calcularMedia() {
+        /*double a=4;
+        double b=10;
+        double resultadoEsperado=7;
+        Secuencial secuencial = new Secuencial();
+        double resultadoReal= secuencial.calcularMedia(a,b);
+        assertEquals(resultadoReal, resultadoEsperado, "Media no es correcta");
+        */
+        //forma de poner la comprobacion de caja negra apropiadamente
+        assertEquals(new Secuencial().calcularMedia(4,10), 7,
+                "La media no es correcta");
     }
 }

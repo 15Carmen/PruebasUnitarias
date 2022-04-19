@@ -17,7 +17,7 @@ public class Iterativa {
      * @param vector
      * @return
      */
-    public double obtenerMaximo(double[] vector){
+    public double buscarMaximo(double[] vector){
 
         double maximo = vector[0];
         for (int i = 1; i< vector.length; i++){

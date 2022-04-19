@@ -2,7 +2,7 @@ package Principal;
 
 public class Selectiva {
 
-     int minimo=0;
+     public int minimo=0;
 
     /**
      * hacer prueba de caja negra
