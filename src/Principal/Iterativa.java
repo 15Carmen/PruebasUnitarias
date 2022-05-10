@@ -37,7 +37,12 @@ public class Iterativa {
         return minimo;
     }
 
+    /**
+    como no tiene sentido tener un vector al que no puedo acceder porque es
+    privado, hacemos un getter para así hacer una copia a la que si podamos acceder
+    */
     public void duplicarValores(){
+
         for (int i = 0; i< datos.length; i++){
             datos[i] *=2;
         }
@@ -55,7 +60,8 @@ public class Iterativa {
 
     public double obtenerValorEntre(double minimo, double maximo) throws Exception {
         boolean encontrado= false;
-        double valor = 0;
+        double valor =
+                0;
         int i = 0;
         while (i<datos.length && !encontrado){
             if (datos[i]<=minimo || datos[i]>=maximo){
@@ -95,6 +101,14 @@ public class Iterativa {
         return valor;
     }
 
+
+    /**
+     * Comprueba que todos los valores del atributo datos están en el rango internamente definido con un minimo y un
+     * maximo
+     *
+     * En caso de estar vacío, se considera válido.
+     * @throws Exception Cuando algún dato está fuera del rango, o el verctor está vacío.
+     */
     public void verificarDatosInternos() throws Exception {
         boolean encontrado= false;
         double valor = 0;
